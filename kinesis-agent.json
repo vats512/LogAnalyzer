@@ -1,0 +1,21 @@
+{
+  "checkpointFile": "/tmp/aws-kinesis-agent-checkpoints/main.log",
+  "cloudwatch.emitMetrics": true,
+  "cloudwatch.endpoint": "https://monitoring.us-east-1.amazonaws.com",
+  "kinesis.endpoint": "https://kinesis.us-east-1.amazonaws.com",
+  "awsAccessKeyId": "XXXXXXXXXXX",
+  "awsSecretAccessKey": "XXXXXXXXXXXXX",
+  "flows": [
+    {
+      "filePattern": "/tmp/aws/app*",
+      "initialPosition": "START_OF_FILE",
+      "deliveryStream": "public-es-log-stream",
+      "dataProcessingOptions": [
+        {
+          "optionName": "LOGTOJSON",
+          "logFormat": "COMBINEDAPACHELOG"
+        }
+      ]
+    }
+  ]
+}
